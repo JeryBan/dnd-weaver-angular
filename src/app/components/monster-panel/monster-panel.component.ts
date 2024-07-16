@@ -10,4 +10,21 @@ import {Monster} from "../../shared/interfaces/monster";
 })
 export class MonsterPanelComponent {
   monsterList: Monster[] = []
+
+
+  getMonsters() {
+
+  }
+
+  addMonster() {
+
+  }
+
+  updateMonster(id: number) {
+
+  }
+
+  deleteMonster(id: number) {
+
+  }
 }

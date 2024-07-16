@@ -10,4 +10,20 @@ import {Player} from "../../shared/interfaces/player";
 })
 export class PlayerPanelComponent {
   playerList: Player[] = []
+
+  getPlayers() {
+
+  }
+
+  addPlayer() {
+
+  }
+
+  updatePlayer(id: number) {
+
+  }
+
+  deletePlayer(id: number) {
+
+  }
 }

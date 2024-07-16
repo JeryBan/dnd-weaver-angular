@@ -2,6 +2,7 @@ import {Npc} from "./npc";
 import {Monster} from "./monster";
 
 export interface Scenario {
+  id: number,
   title : string,
   description: string,
   order: number,

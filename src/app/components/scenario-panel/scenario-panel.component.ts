@@ -11,4 +11,20 @@ import {Scenario} from "../../shared/interfaces/scenario";
 export class ScenarioPanelComponent {
   scenarioList: Scenario[] = []
 
+  getScenarios() {
+
+  }
+
+  addScenario() {
+
+  }
+
+  updateScenario(id: number) {
+
+  }
+
+  deleteScenario(id: number) {
+
+  }
+
 }

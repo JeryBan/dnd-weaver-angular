@@ -1,10 +1,19 @@
 <div class="d-flex flex=row flex-wrap justify-content-between">
-  <div class="d-flex flex-column">
-    <span>scenario board</span>
+
+  <div class="d-flex flex-row">
+    <div>
+      <app-scenario-panel></app-scenario-panel>
+    </div>
+    <div>
+      <app-toolbar></app-toolbar>
+    </div>
   </div>
 
   <div>
-    <span>Map</span>
+    <app-monster-panel></app-monster-panel>
   </div>
+</div>
 
+<div>
+  <app-player-panel></app-player-panel>
 </div>
