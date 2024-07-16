@@ -1,6 +1,13 @@
-<div class="d-flex flex-row">
-  <img src="" alt="" role="button">
-  <img src="" alt="" role="button">
-  <img src="" alt="" role="button">
-  <img src="" alt="" role="button">
+<div class="d-flex flex-row justify-content-evenly">
+  <i role="button" class="fa-solid fa-gear"></i>
+  <i role="button" class="fa-solid fa-cloud"></i>
+  <i role="button" class="fa-solid fa-earth-americas"></i>
+  <i role="button" class="fa-solid fa-crown"></i>
+  <i role="button" class="fa-solid fa-skull"></i>
+  @if (!isMuted) {
+    <i role="button" class="fa-solid fa-volume-off" (click)="toggleMute()"></i>
+  } @else {
+    <i role="button" class="fa-solid fa-volume-xmark" (click)="toggleMute()"></i>
+  }
+  <i role="button" class="fa-solid fa-user"></i>
 </div>

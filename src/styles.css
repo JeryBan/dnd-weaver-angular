@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+ul {list-style-type: none;}
+
+.border-main {
+  padding: 10px;
+  border: 12px solid transparent;
+  border-image-source: url("assets/borders/border-full.png");
+  border-image-slice: 20 12 22 10 fill;
+  border-image-repeat: inherit;
+}
+
+body {
+  height: 150vh;
+  background-image: url(assets/maps/training-grounds.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+

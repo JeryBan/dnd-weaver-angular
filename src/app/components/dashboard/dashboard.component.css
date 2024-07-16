@@ -1,0 +1,25 @@
+.scenario-panel {
+  width: 70%;
+  max-width: 600px;
+  min-height: 25vh;
+}
+
+.toolbar-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20%;
+}
+
+.monster-panel {
+  width: 30%;
+  max-width: 200px;
+  min-height: 25vh;
+}
+
+
+.player-panel {
+  position: fixed;
+  height: 8vh;
+  bottom: 0;
+}

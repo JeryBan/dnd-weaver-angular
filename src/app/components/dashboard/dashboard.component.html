@@ -1,19 +1,23 @@
-<div class="d-flex flex=row flex-wrap justify-content-between">
+<div class="d-flex flex-column gap-5 col-md-6 position-fixed">
 
-  <div class="d-flex flex-row">
-    <div>
-      <app-scenario-panel></app-scenario-panel>
-    </div>
-    <div>
-      <app-toolbar></app-toolbar>
-    </div>
+  <div class="border-main scenario-panel">
+    <h3>scenarios</h3>
+    <app-scenario-panel></app-scenario-panel>
   </div>
 
-  <div>
+  <div class="border-main monster-panel">
+    <h3>monsters</h3>
     <app-monster-panel></app-monster-panel>
   </div>
+
 </div>
 
-<div>
-  <app-player-panel></app-player-panel>
+<div class="border-main toolbar-panel cl-md-6">
+  <app-toolbar></app-toolbar>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="border-main player-panel center">
+    <app-player-panel></app-player-panel>
+  </div>
 </div>

@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './toolbar.component.css'
 })
 export class ToolbarComponent {
+  isMuted = false;
+
+  toggleMute() {
+    this.isMuted = !this.isMuted;
+  }
 
 }
