@@ -29,14 +29,14 @@ export class DndApiService {
   constructor() { }
 
   searchMonster(index: string): Observable<MonsterInfo> {
-    return this.http.get<MonsterInfo>(apiUrl + index, {headers: headers});
+    return this.http.get<MonsterInfo>(apiUrl + "monsters/" + index, {headers: headers});
   }
 
   searchSpell(index: string): Observable<Spell> {
-    return this.http.get<Spell>(apiUrl + index, {headers: headers});
+    return this.http.get<Spell>(apiUrl + "spells/" + index, {headers: headers});
   }
 
   searchFeat(index: string): Observable<Feat> {
-    return this.http.get<Feat>(apiUrl + index, {headers: headers});
+    return this.http.get<Feat>(apiUrl + "feats/" + index, {headers: headers});
   }
 }

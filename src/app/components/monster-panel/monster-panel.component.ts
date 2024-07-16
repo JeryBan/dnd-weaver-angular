@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Monster} from "../../shared/interfaces/monster";
 
 @Component({
@@ -8,12 +8,15 @@ import {Monster} from "../../shared/interfaces/monster";
   templateUrl: './monster-panel.component.html',
   styleUrl: './monster-panel.component.css'
 })
-export class MonsterPanelComponent {
+export class MonsterPanelComponent implements OnInit{
   monsterList: Monster[] = []
 
+  ngOnInit() {
+    this.getMonsters();
+  }
 
   getMonsters() {
-
+    this
   }
 
   addMonster() {

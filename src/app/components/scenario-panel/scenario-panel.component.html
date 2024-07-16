@@ -1,9 +1,17 @@
-<div class="d-flex">
-  <div class="d-flex flex-column">
-    @for (scenario of scenarioList; track scenario) {
+<div class="d-flex flex-column entries-container">
+  @for (scenario of scenarioList; track scenario) {
+    <div class="d-flex flex-row w-100  align-items-center justify-content-between entry-item">
+      <div class=""><span>{{scenario.order}}</span></div>
+      <div><span>{{scenario.title}}</span></div>
       <div>
-        <span>{{scenario.title}}</span>
+        @if (scenario.story_mode) {
+          <i class="fa-solid fa-scroll"></i>
+        } @else {
+          <i class="fa-solid fa-skull-crossbones"></i>
+        }
       </div>
-    }
-  </div>
+    </div>
+
+  }
 </div>
+

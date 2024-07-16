@@ -1,7 +1,8 @@
 export interface Monster {
-  id: number,
+  index: string,
   name: string,
-  image: string
+  level: number,
+  image: string | null
 }
 
 export interface MonsterInfo {

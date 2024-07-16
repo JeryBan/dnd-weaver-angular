@@ -6,11 +6,12 @@ ul {list-style-type: none;}
   border-image-source: url("assets/borders/border-full.png");
   border-image-slice: 20 12 22 10 fill;
   border-image-repeat: inherit;
+  overflow: hidden;
 }
 
 body {
   height: 150vh;
-  background-image: url(assets/maps/training-grounds.jpg);
+  background-image: url("assets/maps/training-grounds.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
