@@ -1,4 +1,20 @@
+@font-face {
+  font-family: 'Dragonfly';
+  src: url('assets/dragonfly-font/Dragonfly-z9jl.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Dragonfly', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: antiquewhite;
+}
+
 ul {list-style-type: none;}
+
+.hidden {
+  visibility: hidden;
+}
 
 .border-main {
   padding: 10px;
@@ -6,7 +22,7 @@ ul {list-style-type: none;}
   border-image-source: url("assets/borders/border-full.png");
   border-image-slice: 20 12 22 10 fill;
   border-image-repeat: inherit;
-  overflow: hidden;
+  overflow: auto;
 }
 
 body {

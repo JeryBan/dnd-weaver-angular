@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, signal} from '@angular/core';
 import {Scenario} from "../../shared/interfaces/scenario";
 
 @Component({
@@ -8,11 +8,16 @@ import {Scenario} from "../../shared/interfaces/scenario";
   templateUrl: './scenario-panel.component.html',
   styleUrl: './scenario-panel.component.css'
 })
-export class ScenarioPanelComponent {
-  scenarioList: Scenario[] = []
+export class ScenarioPanelComponent implements OnInit{
+  scenarioList: Scenario[] = [];
+  @Output() activeScenario = new EventEmitter<Scenario>()
 
   ngOnInit() {
     this.getScenarios();
+  }
+
+  selectScenario(scenario: Scenario) {
+    this.activeScenario.emit(scenario);
   }
 
   getScenarios() {
@@ -25,7 +30,19 @@ export class ScenarioPanelComponent {
         lvl_requirement: 1,
         map: 'assets/maps/training-grounds.jpg',
         soundtrack: null,
-        story_mode: false,
+        combat_mode: false,
+        npcs: [],
+        monsters: []
+      },
+
+      {
+        id: 2,
+        title: 'gankup in the woods',
+        description: 'first combat',
+        order: 2,
+        lvl_requirement: 2,
+        map: 'assets/maps/training-grounds.jpg',
+        soundtrack: null,
         combat_mode: true,
         npcs: [],
         monsters: [
@@ -35,6 +52,7 @@ export class ScenarioPanelComponent {
         ]
       }
     ]
+    this.scenarioList.sort((s1, s2) => s1.order - s2.order);
   }
 
   addScenario() {

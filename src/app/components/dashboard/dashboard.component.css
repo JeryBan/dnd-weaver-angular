@@ -12,8 +12,7 @@
 }
 
 .monster-panel {
-  min-width: 25%;
-  max-width: 200px;
+  width: 35%;
   min-height: 25vh;
 }
 
@@ -22,3 +21,5 @@
   height: 10vh;
   bottom: 0;
 }
+
+

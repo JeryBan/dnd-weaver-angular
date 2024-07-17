@@ -1,12 +1,11 @@
 <div class="d-flex flex-column gap-5 col-md-6 position-fixed">
 
   <div class="border-main scenario-panel">
-    <app-scenario-panel></app-scenario-panel>
+    <app-scenario-panel (activeScenario)="onScenarioSelected($event)"></app-scenario-panel>
   </div>
 
   <div class="border-main monster-panel">
-    <h3>monsters</h3>
-    <app-monster-panel></app-monster-panel>
+    <app-monster-panel [activeScenario]="activeScenario"></app-monster-panel>
   </div>
 
 </div>
@@ -20,3 +19,5 @@
     <app-player-panel></app-player-panel>
   </div>
 </div>
+
+

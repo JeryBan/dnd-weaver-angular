@@ -7,5 +7,8 @@ export interface Monster {
 
 export interface MonsterInfo {
   index: string,
+  name: string,
+  level: number,
+  image: string | null,
   optionalFields: Record<string, any>
 }

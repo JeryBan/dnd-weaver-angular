@@ -9,7 +9,6 @@ export interface Scenario {
   lvl_requirement: number,
   map: string, // path
   soundtrack: string | null, // path
-  story_mode: boolean,
   combat_mode: boolean,
   npcs: Npc[]
   monsters: Monster[]
