@@ -1,15 +1,8 @@
-.entries-container {
+.panel {
   width: 93%;
-  margin-left: 0.7rem;
+  padding: 1rem 2rem 0 2rem;
+  height: 30vh;
+  overflow: auto;
 }
 
-
-.entry-item {
-  padding: 10px;
-  border: 4px solid antiquewhite;
-  border-image-source: url("/assets/borders/scenario-borders.svg");
-  border-image-slice: 200 100 100 100 fill;
-  border-bottom-width: 20px;
-  border-image-repeat: stretch;
-}
 

@@ -18,8 +18,12 @@
 
 .player-panel {
   position: fixed;
-  height: 10vh;
   bottom: 0;
+}
+
+.modal-panel {
+  position: fixed;
+  top: 35%;
 }
 
 

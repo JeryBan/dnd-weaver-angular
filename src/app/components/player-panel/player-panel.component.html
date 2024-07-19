@@ -1,9 +1,8 @@
-<div class="d-flex flex-row gap-2 ms-1 me-1">
+<div class="d-flex flex-row gap-2 ms-1 me-1 border-main">
   @for (player of playerList; track player) {
-    <div role="button" class="portrait">
+    <div role="button" class="portrait" (click)="showModal(player)">
       <img src="{{player.image}}" alt="{{player.name}}">
     </div>
-
   }
 </div>
 

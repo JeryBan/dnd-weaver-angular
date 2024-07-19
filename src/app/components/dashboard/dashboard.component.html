@@ -1,22 +1,30 @@
 <div class="d-flex flex-column gap-5 col-md-6 position-fixed">
 
-  <div class="border-main scenario-panel">
+  <div class="scenario-panel">
     <app-scenario-panel (activeScenario)="onScenarioSelected($event)"></app-scenario-panel>
   </div>
 
-  <div class="border-main monster-panel">
+  <div class="monster-panel">
     <app-monster-panel [activeScenario]="activeScenario"></app-monster-panel>
   </div>
 
 </div>
 
-<div class="border-main toolbar-panel cl-md-6">
+<div class="toolbar-panel cl-md-6">
   <app-toolbar></app-toolbar>
 </div>
 
 <div class="d-flex justify-content-center">
-  <div class="border-main player-panel">
-    <app-player-panel></app-player-panel>
+  <div class="player-panel">
+    <app-player-panel (modalContent)="onPlayerSelected($event)"></app-player-panel>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="modal-panel">
+    <app-modals
+      [modalContent]="modalContent"
+    ></app-modals>
   </div>
 </div>
 

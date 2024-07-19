@@ -27,6 +27,7 @@ export class MonsterPanelComponent implements OnChanges{
         this.apiService.searchMonster(monster.index).subscribe({
           next: result => {
             result.level = monster.level;
+            result.modalType = 'monster'
             this.monsterList.push(result);
           },
           error: err => {

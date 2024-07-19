@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output, signal} from '@angular/core';
 import {Scenario} from "../../shared/interfaces/scenario";
+import {Player} from "../../shared/interfaces/player";
 
 @Component({
   selector: 'app-scenario-panel',
@@ -10,7 +11,9 @@ import {Scenario} from "../../shared/interfaces/scenario";
 })
 export class ScenarioPanelComponent implements OnInit{
   scenarioList: Scenario[] = [];
+  modalState: boolean = false;
   @Output() activeScenario = new EventEmitter<Scenario>()
+  @Output() modalContent = new EventEmitter<Scenario>();
 
   ngOnInit() {
     this.getScenarios();
@@ -20,10 +23,16 @@ export class ScenarioPanelComponent implements OnInit{
     this.activeScenario.emit(scenario);
   }
 
+  showModal(scenario: Scenario) {
+    this.modalState ? this.modalContent.emit(scenario) : this.modalContent.emit();
+    this.modalState = !this.modalState;
+  }
+
   getScenarios() {
     this.scenarioList = [
       {
         id: 1,
+        modalType: 'scenario',
         title: 'intro',
         description: 'the gathering',
         order: 1,
@@ -37,6 +46,7 @@ export class ScenarioPanelComponent implements OnInit{
 
       {
         id: 2,
+        modalType: 'scenario',
         title: 'gankup in the woods',
         description: 'first combat',
         order: 2,

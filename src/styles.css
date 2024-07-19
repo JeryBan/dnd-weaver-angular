@@ -17,8 +17,8 @@ ul {list-style-type: none;}
 }
 
 .border-main {
-  padding: 10px;
-  border: 12px solid transparent;
+  padding: 13px;
+  border: 9px solid transparent;
   border-image-source: url("assets/borders/border-full.png");
   border-image-slice: 20 12 22 10 fill;
   border-image-repeat: inherit;

@@ -1,0 +1,9 @@
+.panel {
+  height: 40vh;
+  width: 500px;
+}
+
+.panel > iframe {
+  height: 100%;
+  width: 100%;
+}

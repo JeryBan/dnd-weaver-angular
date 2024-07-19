@@ -1,0 +1,15 @@
+@if (this.modalContent?.modalType === 'player') {
+  <div class="border-main panel">
+    <iframe src="/assets/sheets/character_sheet_5e.pdf" frameborder="0"></iframe>
+  </div>
+
+} @else if (this.modalContent?.modalType === 'monster') {
+  <div>
+    <span>monster</span>
+  </div>
+
+} @else if (this.modalContent?.modalType === 'scenario') {
+  <div>
+    <span>scenario</span>
+  </div>
+}
