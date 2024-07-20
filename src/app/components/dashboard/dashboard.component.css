@@ -1,5 +1,5 @@
 .scenario-panel {
-  min-width: 35%;
+  min-width: 50%;
   max-width: 600px;
   min-height: 25vh;
   overflow: auto;
@@ -16,12 +16,16 @@
   min-height: 25vh;
 }
 
+.monster-modal {
+  height: 25vh;
+}
+
 .player-panel {
   position: fixed;
   bottom: 0;
 }
 
-.modal-panel {
+.player-modal {
   position: fixed;
   top: 35%;
 }

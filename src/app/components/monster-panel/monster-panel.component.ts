@@ -2,7 +2,6 @@ import {Component, EventEmitter, inject, Input, OnChanges, Output} from '@angula
 import {Monster, MonsterInfo} from "../../shared/interfaces/monster";
 import {Scenario} from "../../shared/interfaces/scenario";
 import {DndApiService} from "../../shared/services/dnd-api.service";
-import {Player} from "../../shared/interfaces/player";
 import {Modal} from "../../shared/interfaces/modal";
 
 @Component({
@@ -17,7 +16,6 @@ export class MonsterPanelComponent implements OnChanges{
   @Input() activeScenario: Scenario | undefined;
   @Output() modalContent = new EventEmitter<Modal>();
   modal: Modal = { content: null, type: '' };
-  modalState: Boolean = false;
   monsterList: MonsterInfo[] = []
 
   ngOnChanges() {
@@ -27,9 +25,7 @@ export class MonsterPanelComponent implements OnChanges{
   showModal(monster: MonsterInfo) {
       this.modal.content = monster;
       this.modal.type = 'monster';
-
-      this.modalState ? this.modalContent.emit(this.modal) : this.modalContent.emit();
-      this.modalState = !this.modalState;
+      this.modalContent.emit(this.modal);
   }
 
   getMonsters() {

@@ -15,7 +15,6 @@ import {Modal} from "../../shared/interfaces/modal";
 export class PlayerPanelComponent implements OnInit {
   @Output() modalContent = new EventEmitter<Modal>();
   modal: Modal = { content: null, type: '' };
-  modalState: Boolean = false;
   playerList: Player[] = []
 
   ngOnInit(): void {
@@ -25,9 +24,7 @@ export class PlayerPanelComponent implements OnInit {
   showModal(player: Player) {
     this.modal.content = player;
     this.modal.type = 'player';
-
-    this.modalState ? this.modalContent.emit(this.modal) : this.modalContent.emit();
-    this.modalState = !this.modalState;
+    this.modalContent.emit(this.modal);
   }
 
   getPlayers() {

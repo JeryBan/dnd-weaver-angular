@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Modal} from "../../shared/interfaces/modal";
 
 @Component({
