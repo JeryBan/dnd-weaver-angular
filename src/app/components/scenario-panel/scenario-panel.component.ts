@@ -32,7 +32,6 @@ export class ScenarioPanelComponent implements OnInit{
     this.scenarioList = [
       {
         id: 1,
-        modalType: 'scenario',
         title: 'intro',
         description: 'the gathering',
         order: 1,
@@ -46,7 +45,6 @@ export class ScenarioPanelComponent implements OnInit{
 
       {
         id: 2,
-        modalType: 'scenario',
         title: 'gankup in the woods',
         description: 'first combat',
         order: 2,

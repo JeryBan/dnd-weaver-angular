@@ -5,8 +5,7 @@ import {MonsterPanelComponent} from "../monster-panel/monster-panel.component";
 import {ToolbarComponent} from "../toolbar/toolbar.component";
 import {Scenario} from "../../shared/interfaces/scenario";
 import {ModalsComponent} from "../modals/modals.component";
-import {Player} from "../../shared/interfaces/player";
-import {Monster} from "../../shared/interfaces/monster";
+import {Modal} from "../../shared/interfaces/modal";
 
 @Component({
   selector: 'app-dashboard',
@@ -23,15 +22,15 @@ import {Monster} from "../../shared/interfaces/monster";
 })
 export class DashboardComponent {
   activeScenario: Scenario | undefined;
-  modalContent: Player | Monster | Scenario | undefined;
+  modal: Modal = { content: null, type: '' };
   modalState: Boolean = false;
 
   onScenarioSelected(scenario: Scenario) {
     this.activeScenario = scenario;
   }
 
-  onPlayerSelected(player: Player) {
-    this.modalContent = player;
+  showModal(modal: Modal) {
+    this.modal = modal;
   }
 
   closeModal(): void {

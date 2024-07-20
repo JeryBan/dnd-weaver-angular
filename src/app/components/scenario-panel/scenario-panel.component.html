@@ -5,9 +5,9 @@
       <div role="button" (click)="selectScenario(scenario)"><span>{{scenario.title}}</span></div>
       <div>
         @if (!scenario.combat_mode) {
-          <i class="fa-solid fa-scroll" role="button"></i>
+          <i class="fa-solid fa-scroll" role="button" (click)="showModal(scenario)"></i>
         } @else {
-          <i class="fa-solid fa-skull-crossbones" role="button"></i>
+          <i class="fa-solid fa-skull-crossbones" role="button" (click)="showModal(scenario)"></i>
         }
       </div>
     </div>

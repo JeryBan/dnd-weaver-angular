@@ -1,15 +1,16 @@
-@if (this.modalContent?.modalType === 'player') {
+@if (modal?.type === 'player') {
   <div class="border-main panel">
     <iframe src="/assets/sheets/character_sheet_5e.pdf" frameborder="0"></iframe>
   </div>
 
-} @else if (this.modalContent?.modalType === 'monster') {
+} @else if (modal?.type === 'monster') {
   <div>
     <span>monster</span>
   </div>
-
-} @else if (this.modalContent?.modalType === 'scenario') {
-  <div>
-    <span>scenario</span>
-  </div>
 }
+<!--} @else if (modalContent.getScenarios()) {-->
+<!--  <div>-->
+<!--    <span>scenario</span>-->
+<!--  </div>-->
+
+

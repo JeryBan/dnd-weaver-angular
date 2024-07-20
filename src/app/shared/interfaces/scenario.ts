@@ -3,7 +3,6 @@ import {Monster} from "./monster";
 
 export interface Scenario {
   id: number,
-  modalType: string,
   title : string,
   description: string,
   order: number,

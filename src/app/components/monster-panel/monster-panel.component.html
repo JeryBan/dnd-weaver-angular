@@ -1,6 +1,6 @@
-<div role="button" class="d-flex flex-column border-main panel">
+<div class="d-flex flex-column border-main panel">
   @for (monster of monsterList; track monster) {
-    <div>
+    <div role="button" (click)="showModal(monster)">
       <span>{{monster.name}}, lvl {{monster.level}}</span>
 <!--      <img src="{{monster.image}}" alt="monster image">-->
     </div>
