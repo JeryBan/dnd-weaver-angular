@@ -1,41 +1,37 @@
-<div class="d-flex flex-column gap-5 col-md-6 position-fixed">
-
-  <div class="d-flex gap-3">
-    <div class="scenario-panel">
-      <app-scenario-panel
-        (activeScenario)="onScenarioSelected($event)"
-        (modalContent)="showModal($event)"
-      ></app-scenario-panel>
-    </div>
-    @if (modal.type === 'scenario') {
-      <div class="d-flex justify-content-center">
-        <div class="scenario-modal">
-          <app-modals
-            [modal]="modal"
-          ></app-modals>
-        </div>
-      </div>
-    }
+<div class="d-flex gap-3 col-8 position-fixed">
+  <div class="scenario-panel">
+    <app-scenario-panel
+      (activeScenario)="onScenarioSelected($event)"
+      (modalContent)="showModal($event)"
+    ></app-scenario-panel>
   </div>
-
-  <div class="d-flex gap-3">
-    <div class="monster-panel">
-      <app-monster-panel
-        [activeScenario]="activeScenario"
-        (modalContent)="showModal($event)"
-      ></app-monster-panel>
-    </div>
-    @if (modal.type === 'monster') {
-      <div class="d-flex justify-content-center">
-        <div class="monster-modal">
-          <app-modals
-            [modal]="modal"
-          ></app-modals>
-        </div>
+  @if (modal.type === 'scenario') {
+    <div class="d-flex justify-content-center">
+      <div class="scenario-modal">
+        <app-modals
+          [modal]="modal"
+        ></app-modals>
       </div>
-    }
-  </div>
+    </div>
+  }
+</div>
 
+<div class="d-flex gap-3 col-6 position-fixed top-50">
+  <div class="monster-panel">
+    <app-monster-panel
+      [activeScenario]="activeScenario"
+      (modalContent)="showModal($event)"
+    ></app-monster-panel>
+  </div>
+  @if (modal.type === 'monster') {
+    <div class="d-flex justify-content-center">
+      <div class="monster-modal">
+        <app-modals
+          [modal]="modal"
+        ></app-modals>
+      </div>
+    </div>
+  }
 </div>
 
 <div class="toolbar-panel cl-md-6">

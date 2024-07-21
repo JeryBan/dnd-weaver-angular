@@ -1,9 +1,21 @@
-.panel {
+.player-content {
+  width: 35vw;
   height: 50vh;
-  width: 500px;
+  overflow-y: auto;
 }
 
-.panel > iframe {
+.player-content > iframe {
   height: 100%;
   width: 100%;
+}
+
+.scenario-content {
+  width: 25vw;
+  height: 60vh;
+  overflow-y: auto;
+}
+
+img {
+  width: 80%;
+  height: 200px;
 }

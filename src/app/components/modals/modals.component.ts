@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Modal} from "../../shared/interfaces/modal";
 
 @Component({
@@ -10,6 +10,5 @@ import {Modal} from "../../shared/interfaces/modal";
 })
 export class ModalsComponent {
   @Input() modal: Modal | undefined;
-
 
 }

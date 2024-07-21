@@ -21,6 +21,7 @@ export class ScenarioPanelComponent implements OnInit{
 
   selectScenario(scenario: Scenario) {
     this.activeScenario.emit(scenario);
+    document.body.style.backgroundImage = `url(${scenario.map})`;
   }
 
   showModal(scenario: Scenario) {
@@ -34,10 +35,10 @@ export class ScenarioPanelComponent implements OnInit{
       {
         id: 1,
         title: 'intro',
-        description: 'the gathering',
+        description: 'the gathering. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam corporis dolores eius est expedita ipsa ipsam ipsum, itaque molestias non nulla officia quam quibusdam ratione reprehenderit vero. Eaque, excepturi? Architecto asperiores, beatae est illo in inventore iusto minus odit officiis optio pariatur porro provident, quaerat quas qui quisquam rerum veritatis voluptates.',
         order: 1,
         lvl_requirement: 1,
-        map: 'assets/maps/training-grounds.jpg',
+        map: 'assets/maps/tavern.jpg',
         soundtrack: null,
         combat_mode: false,
         npcs: [],
@@ -47,7 +48,7 @@ export class ScenarioPanelComponent implements OnInit{
       {
         id: 2,
         title: 'gankup in the woods',
-        description: 'first combat',
+        description: 'Lorem ipsum dolor sit amet, contur porro provident, quaerat quas qui quisquam rerum veritatis voluptates.',
         order: 2,
         lvl_requirement: 2,
         map: 'assets/maps/training-grounds.jpg',

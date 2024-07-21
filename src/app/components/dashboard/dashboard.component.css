@@ -12,12 +12,9 @@
 }
 
 .monster-panel {
+  margin-top: -3rem;
   width: 35%;
   min-height: 25vh;
-}
-
-.monster-modal {
-  height: 25vh;
 }
 
 .player-panel {
