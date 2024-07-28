@@ -1,6 +1,15 @@
 @font-face {
-  font-family: 'Dragonfly';
-  src: url('assets/dragonfly-font/Dragonfly-z9jl.ttf') format('truetype');
+  font-family: 'PlayfairDisplay';
+  src: url('assets/fonts/playfair-display/PlayfairDisplay-Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PlayfairDisplay';
+  src: url('assets/fonts/playfair-display/PlayfairDisplay-Bold.ttf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
 }
 
 body {
@@ -8,6 +17,10 @@ body {
   font-size: 1.4rem;
   font-weight: 600;
   color: antiquewhite;
+}
+
+hr {
+  border-width: 3px;
 }
 
 ul {list-style-type: none;}

@@ -17,7 +17,7 @@ import {HttpClient} from "@angular/common/http";
 import {Spell} from "../interfaces/spell";
 import {Feat} from "../interfaces/feat";
 
-const apiUrl = environment.dnd5api;
+const apiUrl = environment.dnd5api + "/api/";
 const headers = {Accept: 'application/json'};
 
 @Injectable({

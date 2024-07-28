@@ -57,8 +57,9 @@ export class ScenarioPanelComponent implements OnInit{
         npcs: [],
         monsters: [
           {index: 'wolf', name: 'wolf1', level: 1, image: null},
-          {index: 'wolf', name: 'wolf2', level: 1, image: null},
-          {index: 'bandit', name: 'chado', level: 2, image: null}
+          {index: 'wraith', name: 'wraith', level: 8, image: null},
+          {index: 'assassin', name: 'chado', level: 2, image: null},
+          {index: 'ancient-brass-dragon', name: 'drogo', level: 10, image: null}
         ]
       }
     ]

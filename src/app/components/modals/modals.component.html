@@ -1,13 +1,163 @@
+<!-------------------------->
+<!----- Player Modal ------->
+<!-------------------------->
 @if (modal?.type === 'player') {
   <div class="border-main player-content">
     <iframe src="/assets/sheets/character_sheet_5e.pdf" frameborder="0"></iframe>
   </div>
 
+
+<!-------------------------->
+<!----- Monster Modal ------>
+<!-------------------------->
 } @else if (modal?.type === 'monster') {
-  <div>
-    <span>monster modal</span>
+  <div class="border-main monster-content">
+    <div class="d-flex flex-column">
+      <div class="d-flex gap-4">
+        @if (modal?.content.desc) {
+          <div class="col-6">
+            <span>{{modal?.content.desc}}</span>
+          </div>
+        }@else {
+          <span>No data about this creature.</span>
+        }
+        <div class="col-6">
+          <img src="{{apiUrl + modal?.content.image}}" alt="monster-image">
+        </div>
+      </div>
+      <hr>
+      <span>{{modal?.content.size}} {{modal?.content.type}}, {{modal?.content.alignment}}, CR: {{modal?.content.challenge_rating}}</span>
+      <hr>
+      <span>Armor Class: {{modal?.content.armor_class[0].value}}, {{modal?.content.armor_class[0].type}}</span>
+      <span>Hit Points: {{modal?.content.hit_points}} ({{modal?.content.hit_dice}})</span>
+      @if (modal?.content.speed?.walk) {
+        <span>Speed: Walk {{modal?.content.speed.walk}}</span>
+      }@else if (modal?.content.speed?.burrow) {
+        <span>Speed: Burrow {{modal?.content.speed.burrow}}</span>
+      }@else if (modal?.content.speed?.fly) {
+        <span>Speed: Fly {{modal?.content.speed.fly}}</span>
+      }
+      <hr>
+    <!-- Attributes     -->
+      <div class="d-flex gap-3 justify-content-evenly">
+        <div class="d-flex flex-column text-center">
+          <span>STR</span>
+          <span>{{modal?.content.strength}}</span>
+        </div>
+        <div class="d-flex flex-column text-center">
+          <span>DEX</span>
+          <span>{{modal?.content.dexterity}}</span>
+        </div>
+        <div class="d-flex flex-column text-center">
+          <span>CON</span>
+          <span>{{modal?.content.constitution}}</span>
+        </div>
+        <div class="d-flex flex-column text-center">
+          <span>INT</span>
+          <span>{{modal?.content.intelligence}}</span>
+        </div>
+        <div class="d-flex flex-column text-center">
+          <span>WIS</span>
+          <span>{{modal?.content.wisdom}}</span>
+        </div>
+        <div class="d-flex flex-column text-center">
+          <span>CHA</span>
+          <span>{{modal?.content.charisma}}</span>
+        </div>
+      </div>
+      <hr>
+    <!--  Proficiencies / Senses  -->
+      <div class="d-flex gap-3">
+        <div class="col-6">
+          <h3 class="fw-bold">Proficiences: </h3>
+          <div class="d-flex flex-column">
+            @for (prof of modal?.content.proficiencies; track prof) {
+              <span>{{prof.proficiency.name}}, {{prof.value}}</span>
+            }
+          </div>
+        </div>
+        <div class="col-6">
+          <h3 class="fw-bold">Senses: </h3>
+          <div class="d-flex flex-column">
+            <span>Perception: {{modal?.content.senses.passive_perception}}</span>
+            @if (modal?.content.senses.blindsight) {
+              <span>Blindsight: {{modal?.content.senses.blindsight}}</span>
+            }
+            @if (modal?.content.senses.darkvision) {
+              <span>Darkvision: {{modal?.content.senses.darkvision}}</span>
+            }
+            @if (modal?.content.senses.tremorsense) {
+              <span>Tremorsense: {{modal?.content.senses.tremorsense}}</span>
+            }
+            @if (modal?.content.senses.truesight) {
+              <span>Truesight: {{modal?.content.senses.truesight}}</span>
+            }
+          </div>
+        </div>
+      </div>
+      <hr>
+      <!--  Vulnerabilities / Immunities  -->
+      <div class="d-flex flex-column">
+        @if (modal?.content.damage_vulnerabilities?.length > 0) {
+          <span><strong>Damage vulnerabilities: </strong>{{modal?.content.damage_vulnerabilities}}</span>
+        }
+        @if (modal?.content.damage_resistances?.length > 0) {
+          <span><strong>Damage Resistances: </strong>{{modal?.content.damage_resistances}}</span>
+        }
+        @if (modal?.content.damage_immunities?.length > 0) {
+          <span><strong>Damage immunities: </strong>{{modal?.content.damage_immunities}}</span>
+        }
+        @if (modal?.content.condition_immunities?.length > 0) {
+          <span><strong>Condition Immunities: </strong></span>
+          <div class="d-flex flex-wrap">
+            @for (condition of modal?.content.condition_immunities; track condition) {
+              <span>{{condition.name}}, </span>
+            }
+          </div>
+        }
+      </div>
+      <hr>
+      <!--  Actions  -->
+      <div>
+        <h3 class="fw-bold">Actions: </h3>
+        @for (action of modal?.content.actions; track action) {
+          <div class="d-flex flex-column mb-4">
+            <span><strong style="text-transform: uppercase">{{action.name}}: </strong>{{action.desc}}</span>
+          </div>
+        }
+      </div>
+      <hr>
+      <!--  ReActions  -->
+      @if (modal?.content.reactions) {
+        <div>
+          <h3 class="fw-bold">Reactions:</h3>
+          @for (action of modal?.content.reactions; track action) {
+            <div class="d-flex flex-column mb-4">
+              <span><strong style="text-transform: uppercase">{{action.name}}.</strong>{{action.desc}}</span>
+            </div>
+          }
+        </div>
+        <hr>
+      }
+      <!--  Special Abilities    -->
+      <div>
+        <h3 class="fw-bold">Special Abilities:</h3>
+        @for (ability of modal?.content.special_abilities; track ability) {
+          <div class="d-flex flex-column mb-4">
+            <span><strong style="text-transform: uppercase">{{ability.name}}: </strong>{{ability.desc}}</span>
+          </div>
+        }
+      </div>
+      <hr>
+
+      <span><strong>EXP: </strong>{{modal?.content.xp}}</span>
+    </div>
   </div>
 
+
+<!---------------------------->
+<!----- Scenario Modal ------->
+<!---------------------------->
 } @else if (modal?.type === 'scenario') {
   <div class="mt-3 p-4 border-main scenario-content d-flex flex-column">
     <h2>{{modal?.content.title}}</h2>

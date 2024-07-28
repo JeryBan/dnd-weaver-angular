@@ -26,6 +26,7 @@ export class MonsterPanelComponent implements OnChanges{
       this.modal.content = monster;
       this.modal.type = 'monster';
       this.modalContent.emit(this.modal);
+      console.log(monster)
   }
 
   getMonsters() {
@@ -35,7 +36,6 @@ export class MonsterPanelComponent implements OnChanges{
       for (let monster of this.activeScenario.monsters) {
         this.apiService.searchMonster(monster.index).subscribe({
           next: result => {
-            result.level = monster.level;
             this.monsterList.push(result);
           },
           error: err => {

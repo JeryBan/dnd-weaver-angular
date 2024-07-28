@@ -1,5 +1,8 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Modal} from "../../shared/interfaces/modal";
+import {environment} from "../../../environments/environment";
+
+const apiUrl = environment.dnd5api;
 
 @Component({
   selector: 'app-modals',
@@ -11,4 +14,5 @@ import {Modal} from "../../shared/interfaces/modal";
 export class ModalsComponent {
   @Input() modal: Modal | undefined;
 
+  protected readonly apiUrl = apiUrl;
 }
