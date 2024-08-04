@@ -35,6 +35,8 @@ export class MonsterPanelComponent implements OnChanges{
   modal: Modal = { content: null, type: '' };
   monsterList: MonsterInfo[] = []
 
+  @ViewChild('tokenContainer') tokenContainer: ElementRef | undefined;
+
   renderer: Renderer2 = inject(Renderer2);
 
   ngOnChanges() {
@@ -80,8 +82,12 @@ export class MonsterPanelComponent implements OnChanges{
   generateToken(div: HTMLDivElement) {
     const parent = div.parentElement;
     if (parent != document.body) {
+      const container = this.tokenContainer?.nativeElement;
       const clone = div.cloneNode(true);
-      parent!.appendChild(clone)
+      container.appendChild(clone);
+
+      console.log(clone);
+      console.log(container.childNodes);
     }
   }
 
