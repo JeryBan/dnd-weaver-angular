@@ -20,6 +20,6 @@ img {
 }
 
 .monster-content {
-  height: 90%;
-  overflow: auto;
+  height: 98%;
+  overflow-y: auto;
 }

@@ -1,13 +1,30 @@
-import {Component, EventEmitter, inject, Input, OnChanges, Output} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  inject,
+  Input,
+  OnChanges,
+  Output, Renderer2,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
 import {Monster, MonsterInfo} from "../../shared/interfaces/monster";
 import {Scenario} from "../../shared/interfaces/scenario";
 import {DndApiService} from "../../shared/services/dnd-api.service";
 import {Modal} from "../../shared/interfaces/modal";
+import {environment} from "../../../environments/environment";
+import {CdkDrag, CdkDragEnd, CdkDragStart} from "@angular/cdk/drag-drop";
+import {read} from "@popperjs/core";
+
+const apiUrl = environment.dnd5api;
 
 @Component({
   selector: 'app-monster-panel',
   standalone: true,
-  imports: [],
+  imports: [
+    CdkDrag
+  ],
   templateUrl: './monster-panel.component.html',
   styleUrl: './monster-panel.component.css'
 })
@@ -17,6 +34,8 @@ export class MonsterPanelComponent implements OnChanges{
   @Output() modalContent = new EventEmitter<Modal>();
   modal: Modal = { content: null, type: '' };
   monsterList: MonsterInfo[] = []
+
+  renderer: Renderer2 = inject(Renderer2);
 
   ngOnChanges() {
     this.getMonsters();
@@ -58,4 +77,27 @@ export class MonsterPanelComponent implements OnChanges{
 
   }
 
+  generateToken(div: HTMLDivElement) {
+    const parent = div.parentElement;
+    if (parent != document.body) {
+      const clone = div.cloneNode(true);
+      parent!.appendChild(clone)
+    }
+  }
+
+  detachElement(div: HTMLDivElement, event: CdkDragEnd) {
+    if (div.parentNode != document.body) {
+
+      const dropPointX = event.dropPoint.x - event.distance.x -28;
+      const dropPointY = event.dropPoint.y - event.distance.y -27;
+
+      div.classList.remove('clone-image');
+      div.classList.add('image-position');
+      div.style.left = `${dropPointX}px`;
+      div.style.top = `${dropPointY}px`;
+      document.body.appendChild(div);
+    }
+  }
+
+  protected readonly apiUrl = apiUrl;
 }

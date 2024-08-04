@@ -14,8 +14,6 @@
 .image-position {
   position: absolute;
   z-index: 5;
-  /*top: 60%;*/
-  /*left: 50%;*/
 }
 
 img {
@@ -24,7 +22,3 @@ img {
   border-radius: 50%;
 }
 
-.hidden {
-  opacity: 0;
-  pointer-events: auto;
-}

@@ -13,8 +13,7 @@
 
 .monster-panel {
   margin-top: -3rem;
-  width: 35%;
-  min-width: 35%;
+  min-width: 20%;
   max-height: 35vh;
 }
 

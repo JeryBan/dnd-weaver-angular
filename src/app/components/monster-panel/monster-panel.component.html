@@ -1,8 +1,19 @@
-<div class="d-flex flex-column border-main panel">
+<div class="d-flex flex-column gap-1 border-main panel">
   @for (monster of monsterList; track monster) {
-    <div role="button" (click)="showModal(monster)">
-      <span>{{monster.name}}</span>
-<!--      <img src="{{monster.image}}" alt="monster image">-->
+    <div class="d-flex gap-1 justify-content-between">
+      <div role="button" (click)="showModal(monster)">
+        <span>{{monster.name}}</span>
+      </div>
+      <div #tokenContainer class="position-relative">
+        <div role="button" class="portrait" (dblclick)="showModal(monster)">
+          <img src="{{apiUrl + monster.image}}" alt="monster-image">
+        </div>
+        <div #cloneMonsterImage role="button" class="portrait clone-image"
+             (dblclick)="showModal(monster)"
+             cdkDrag (cdkDragStarted)="generateToken(cloneMonsterImage)" (cdkDragEnded)="detachElement(cloneMonsterImage, $event)">
+          <img src="{{apiUrl + monster.image}}" alt="monster-image">
+        </div>
+      </div>
     </div>
   }
 </div>

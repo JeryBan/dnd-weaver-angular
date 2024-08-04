@@ -50,12 +50,6 @@ export class PlayerPanelComponent implements OnInit {
 
   }
 
-  makeVisible(div: HTMLDivElement) {
-    if (div.classList.contains("hidden")) {
-      div.classList.remove('hidden');
-    }
-  }
-
   detachElement(div: HTMLDivElement, event: CdkDragEnd) {
     if (div.parentNode != document.body) {
       const dropPointX = event.dropPoint.x - event.distance.x -28;

@@ -4,9 +4,9 @@
       <div role="button" class="portrait" (dblclick)="showModal(player)">
         <img src="{{player.image}}" alt="{{player.name}}">
       </div>
-      <div #cloneImage role="button" class="portrait clone-image hidden"
+      <div #clonePlayerImage role="button" class="portrait clone-image"
            (dblclick)="showModal(player)"
-           cdkDrag (cdkDragStarted)="makeVisible(cloneImage)" (cdkDragEnded)="detachElement(cloneImage, $event)">
+           cdkDrag (cdkDragEnded)="detachElement(clonePlayerImage, $event)">
         <img src="{{player.image}}" alt="{{player.name}}">
       </div>
     </div>
