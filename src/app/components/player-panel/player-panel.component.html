@@ -1,7 +1,14 @@
 <div class="d-flex flex-row gap-2 ms-1 me-1 border-main">
   @for (player of playerList; track player) {
-    <div role="button" class="portrait" (click)="showModal(player)">
-      <img src="{{player.image}}" alt="{{player.name}}">
+    <div class="position-relative">
+      <div role="button" class="portrait" (dblclick)="showModal(player)">
+        <img src="{{player.image}}" alt="{{player.name}}">
+      </div>
+      <div #cloneImage role="button" class="portrait clone-image hidden"
+           (dblclick)="showModal(player)"
+           cdkDrag (cdkDragStarted)="makeVisible(cloneImage)" (cdkDragEnded)="detachElement(cloneImage, $event)">
+        <img src="{{player.image}}" alt="{{player.name}}">
+      </div>
     </div>
   }
 </div>

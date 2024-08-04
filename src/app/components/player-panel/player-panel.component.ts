@@ -2,12 +2,14 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Player} from "../../shared/interfaces/player";
 import {NgOptimizedImage} from "@angular/common";
 import {Modal} from "../../shared/interfaces/modal";
+import {CdkDragEnd, DragDropModule} from "@angular/cdk/drag-drop";
 
 @Component({
   selector: 'app-player-panel',
   standalone: true,
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    DragDropModule
   ],
   templateUrl: './player-panel.component.html',
   styleUrl: './player-panel.component.css'
@@ -46,5 +48,24 @@ export class PlayerPanelComponent implements OnInit {
 
   deletePlayer(id: number) {
 
+  }
+
+  makeVisible(div: HTMLDivElement) {
+    if (div.classList.contains("hidden")) {
+      div.classList.remove('hidden');
+    }
+  }
+
+  detachElement(div: HTMLDivElement, event: CdkDragEnd) {
+    if (div.parentNode != document.body) {
+      const dropPointX = event.dropPoint.x - event.distance.x -28;
+      const dropPointY = event.dropPoint.y - event.distance.y -27;
+
+      div.classList.remove('clone-image');
+      div.classList.add('image-position');
+      div.style.left = `${dropPointX}px`;
+      div.style.top = `${dropPointY}px`;
+      document.body.appendChild(div);
+    }
   }
 }

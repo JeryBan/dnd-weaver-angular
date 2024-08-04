@@ -25,17 +25,13 @@ hr {
 
 ul {list-style-type: none;}
 
-.hidden {
-  visibility: hidden;
-}
-
 .border-main {
   padding: 13px;
   border: 9px solid transparent;
   border-image-source: url("assets/borders/border-full.png");
   border-image-slice: 20 20 22 20 fill;
   border-image-repeat: inherit;
-  overflow: auto;
+  /*overflow: auto;*/
   z-index: 1;
 }
 
@@ -46,4 +42,5 @@ body {
   background-position: center;
   background-size: cover;
 }
+
 
