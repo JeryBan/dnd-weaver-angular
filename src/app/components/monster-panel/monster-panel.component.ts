@@ -1,21 +1,17 @@
 import {
   Component,
-  ElementRef,
   EventEmitter,
   inject,
   Input,
   OnChanges,
-  Output, Renderer2,
-  ViewChild,
-  ViewContainerRef
+  Output,
 } from '@angular/core';
 import {Monster, MonsterInfo} from "../../shared/interfaces/monster";
 import {Scenario} from "../../shared/interfaces/scenario";
 import {DndApiService} from "../../shared/services/dnd-api.service";
 import {Modal} from "../../shared/interfaces/modal";
 import {environment} from "../../../environments/environment";
-import {CdkDrag, CdkDragEnd, CdkDragStart} from "@angular/cdk/drag-drop";
-import {read} from "@popperjs/core";
+import {CdkDrag, CdkDragEnd} from "@angular/cdk/drag-drop";
 
 const apiUrl = environment.dnd5api;
 
@@ -35,9 +31,6 @@ export class MonsterPanelComponent implements OnChanges{
   modal: Modal = { content: null, type: '' };
   monsterList: MonsterInfo[] = []
 
-  @ViewChild('tokenContainer') tokenContainer: ElementRef | undefined;
-
-  renderer: Renderer2 = inject(Renderer2);
 
   ngOnChanges() {
     this.getMonsters();
@@ -82,12 +75,8 @@ export class MonsterPanelComponent implements OnChanges{
   generateToken(div: HTMLDivElement) {
     const parent = div.parentElement;
     if (parent != document.body) {
-      const container = this.tokenContainer?.nativeElement;
       const clone = div.cloneNode(true);
-      container.appendChild(clone);
-
-      console.log(clone);
-      console.log(container.childNodes);
+      parent?.appendChild(clone);
     }
   }
 

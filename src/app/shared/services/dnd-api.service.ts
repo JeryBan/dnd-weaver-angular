@@ -10,7 +10,7 @@
  * https://5e-bits.github.io/docs/api
  */
 import {inject, Injectable} from '@angular/core';
-import {environment} from "../../../environments/environment";
+import {environment} from "../../../environments/environment.development";
 import {Observable} from "rxjs";
 import {MonsterInfo} from "../interfaces/monster";
 import {HttpClient} from "@angular/common/http";

@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-center campaign-panel">
+  <div class="d-flex gap-5 flex-wrap campaign-container">
+    @for (campaign of campaignList; track campaign) {
+      <div role="button" class="mb-2 campaign-card" (click)="selectCampaign(campaign)">
+        <h1>{{campaign.title}}</h1>
+      </div>
+    }
+    <div role="button" class="d-flex justify-content-center align-items-center campaign-card new-campaign" routerLink="dashboard">
+      <h4>Create new Campaign</h4>
+    </div>
+  </div>
+</div>
+<div class="footer">
+
+</div>

@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, inject, OnInit, Output} from '@angular/core';
 import {Scenario} from "../../shared/interfaces/scenario";
 import {Modal} from "../../shared/interfaces/modal";
+import {CampaignService} from "../../shared/services/campaign.service";
 
 @Component({
   selector: 'app-scenario-panel',
@@ -12,10 +13,16 @@ import {Modal} from "../../shared/interfaces/modal";
 export class ScenarioPanelComponent implements OnInit{
   @Output() activeScenario = new EventEmitter<Scenario>()
   @Output() modalContent = new EventEmitter<Modal>();
+  campaignService: CampaignService = inject(CampaignService);
+  activeCampaign = this.campaignService.activeCampaign;
   modal: Modal = { content: null, type: '' };
   scenarioList: Scenario[] = [];
 
   ngOnInit() {
+    document.body.style.backgroundImage = "url(assets/maps/default.jpg)"
+    document.body.style.backgroundSize = "cover"
+    document.body.style.backgroundRepeat = "no-repeat";
+
     this.getScenarios();
   }
 
@@ -56,15 +63,27 @@ export class ScenarioPanelComponent implements OnInit{
         combat_mode: true,
         npcs: [],
         monsters: [
-          // {index: 'wolf', name: 'wolf1', level: 1, image: null},
-          // {index: 'wraith', name: 'wraith', level: 8, image: null},
-          // {index: 'assassin', name: 'chado', level: 2, image: null},
+          {index: 'wolf', name: 'wolf1', level: 1, image: null},
+          {index: 'wraith', name: 'wraith', level: 8, image: null},
+          {index: 'assassin', name: 'chado', level: 2, image: null},
           {index: 'ancient-brass-dragon', name: 'drogo', level: 10, image: null}
         ]
       }
     ]
     this.scenarioList.sort((s1, s2) => s1.order - s2.order);
   }
+
+  // getScenarios() {
+  //     if (this.activeCampaign()?.id) {
+  //       this.campaignService.fetchScenarios(this.activeCampaign()!.id).subscribe({
+  //         next: scenarios => {
+  //           this.scenarioList = scenarios;
+  //           this.scenarioList.sort((s1, s2) => s1.order - s2.order);
+  //         },
+  //         error: err => console.log(`Error fetching scenarios: `, err)
+  //       })
+  //     }
+  // }
 
   addScenario() {
 

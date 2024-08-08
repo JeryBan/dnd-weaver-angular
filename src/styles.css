@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: 'Dragonfly', sans-serif;
+  font-family: 'PlayfairDisplay';
   font-size: 1.4rem;
   font-weight: 600;
   color: antiquewhite;
@@ -37,10 +37,7 @@ ul {list-style-type: none;}
 
 body {
   height: 130vh;
-  background-image: url("assets/maps/default.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+
 }
 
 

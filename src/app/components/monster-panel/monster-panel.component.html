@@ -8,9 +8,9 @@
         <div role="button" class="portrait" (dblclick)="showModal(monster)">
           <img src="{{apiUrl + monster.image}}" alt="monster-image">
         </div>
-        <div #cloneMonsterImage role="button" class="portrait clone-image"
+        <div #monsterToken role="button" class="portrait clone-image"
              (dblclick)="showModal(monster)"
-             cdkDrag (cdkDragStarted)="generateToken(cloneMonsterImage)" (cdkDragEnded)="detachElement(cloneMonsterImage, $event)">
+             cdkDrag (cdkDragStarted)="generateToken(monsterToken)" (cdkDragEnded)="detachElement(monsterToken, $event)">
           <img src="{{apiUrl + monster.image}}" alt="monster-image">
         </div>
       </div>
