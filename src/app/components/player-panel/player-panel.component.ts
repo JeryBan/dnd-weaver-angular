@@ -51,7 +51,9 @@ export class PlayerPanelComponent implements OnInit {
   }
 
   detachElement(div: HTMLDivElement, event: CdkDragEnd) {
-    if (div.parentNode != document.body) {
+    const dashboard = document.getElementById('dashboard');
+
+    if (dashboard && div.parentNode != dashboard) {
       const dropPointX = event.dropPoint.x - event.distance.x -28;
       const dropPointY = event.dropPoint.y - event.distance.y -27;
 
@@ -59,7 +61,7 @@ export class PlayerPanelComponent implements OnInit {
       div.classList.add('image-position');
       div.style.left = `${dropPointX}px`;
       div.style.top = `${dropPointY}px`;
-      document.body.appendChild(div);
+      dashboard.appendChild(div)
     }
   }
 }

@@ -73,16 +73,17 @@ export class MonsterPanelComponent implements OnChanges{
   }
 
   generateToken(div: HTMLDivElement) {
-    const parent = div.parentElement;
-    if (parent != document.body) {
-      const clone = div.cloneNode(true);
-      parent?.appendChild(clone);
-    }
+    // const parent = div.parentElement;
+    // if (parent != document.body) {
+    //   const clone = div.cloneNode(true);
+    //   parent?.appendChild(clone);
+    // }
   }
 
   detachElement(div: HTMLDivElement, event: CdkDragEnd) {
-    if (div.parentNode != document.body) {
+    const dashboard = document.getElementById('dashboard');
 
+    if (dashboard && div.parentNode != dashboard) {
       const dropPointX = event.dropPoint.x - event.distance.x -28;
       const dropPointY = event.dropPoint.y - event.distance.y -27;
 
@@ -90,7 +91,7 @@ export class MonsterPanelComponent implements OnChanges{
       div.classList.add('image-position');
       div.style.left = `${dropPointX}px`;
       div.style.top = `${dropPointY}px`;
-      document.body.appendChild(div);
+      dashboard.appendChild(div);
     }
   }
 

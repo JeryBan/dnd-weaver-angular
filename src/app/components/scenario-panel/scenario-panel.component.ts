@@ -19,16 +19,17 @@ export class ScenarioPanelComponent implements OnInit{
   scenarioList: Scenario[] = [];
 
   ngOnInit() {
-    document.body.style.backgroundImage = "url(assets/maps/default.jpg)"
-    document.body.style.backgroundSize = "cover"
-    document.body.style.backgroundRepeat = "no-repeat";
-
     this.getScenarios();
   }
 
   selectScenario(scenario: Scenario) {
     this.activeScenario.emit(scenario);
-    document.body.style.backgroundImage = `url(${scenario.map})`;
+    this.campaignService.activeScenario.set(scenario);
+
+    const dashboard = document.getElementById('dashboard')
+    if (dashboard) {
+      dashboard.style.backgroundImage = `url(${scenario.map})`;
+    }
   }
 
   showModal(scenario: Scenario) {

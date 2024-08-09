@@ -35,7 +35,7 @@ export class DashboardComponent {
   @HostListener('window:click', ['$event'])
   onClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
-    const backgroundElement = document.body as HTMLElement;
+    const backgroundElement = document.getElementById('dashboard') as HTMLElement;
 
     if (target === backgroundElement) {
       this.closeModal();

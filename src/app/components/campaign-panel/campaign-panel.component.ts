@@ -1,7 +1,7 @@
 import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {Campaign} from "../../shared/interfaces/campaign";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {CampaignService} from "../../shared/services/campaign.service";
 
 
@@ -16,8 +16,10 @@ import {CampaignService} from "../../shared/services/campaign.service";
 })
 export class CampaignPanelComponent implements OnInit, OnDestroy {
   campaignService: CampaignService = inject(CampaignService);
+  router: Router = inject(Router);
   campaignList: Campaign[] = [];
   sub: Subscription | undefined;
+  createMode: boolean = false;
 
   ngOnInit() {
    this.getCampaigns();
@@ -31,13 +33,18 @@ export class CampaignPanelComponent implements OnInit, OnDestroy {
 
   getCampaigns() {
     this.campaignList = [
-      {id: 1, title: "first campaign", description: "jdoashdos osadoADJAS ASDPJOSDJSAD AOSD DOASID", image: null},
-      {id: 1, title: "first campaign", description: "jdoashdos osadoADJAS ASDPJOSDJSAD AOSD DOASID", image: null},
+      {id: 1, title: "first campaign", description: "jdoashdos osadoADJAS ASDPJOSDJSAD AOSD DOASID"},
+      {id: 2, title: "second campaign", description: "jdoashdos osadoADJAS ASDPJOSDJSAD AOSD DOASID"},
     ]
   }
 
   selectCampaign(campaign: Campaign) {
     this.campaignService.activeCampaign.set(campaign);
+    this.router.navigate(['/dashboard']);
+  }
+
+  goToDashboard() {
+    this.router.navigate(['/dashboard']);
   }
 
 
@@ -47,5 +54,9 @@ export class CampaignPanelComponent implements OnInit, OnDestroy {
   //     error: err => console.log(`Error fetching campaigns: `, err)
   //   });
   // }
+
+  addCampaign() {
+
+  }
 
 }

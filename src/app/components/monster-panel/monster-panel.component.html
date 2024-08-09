@@ -4,13 +4,13 @@
       <div role="button" (click)="showModal(monster)">
         <span>{{monster.name}}</span>
       </div>
-      <div #tokenContainer class="position-relative">
+      <div class="position-relative">
         <div role="button" class="portrait" (dblclick)="showModal(monster)">
           <img src="{{apiUrl + monster.image}}" alt="monster-image">
         </div>
         <div #monsterToken role="button" class="portrait clone-image"
              (dblclick)="showModal(monster)"
-             cdkDrag (cdkDragStarted)="generateToken(monsterToken)" (cdkDragEnded)="detachElement(monsterToken, $event)">
+             cdkDrag  (cdkDragEnded)="detachElement(monsterToken, $event)">
           <img src="{{apiUrl + monster.image}}" alt="monster-image">
         </div>
       </div>

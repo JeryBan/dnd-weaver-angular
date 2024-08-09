@@ -14,17 +14,25 @@ const headers = {Accept: 'application/json'};
 export class CampaignService {
   http: HttpClient = inject(HttpClient);
   activeCampaign = signal<Campaign | null>(null);
+  activeScenario = signal<Scenario | null>(null);
 
   constructor() {
     effect( () => {
       if (this.activeCampaign()) {
         console.log('Campaign <' + this.activeCampaign()?.title + '> selected.')
       }
+      if (this.activeScenario()) {
+        console.log('Scenario <' + this.activeScenario()?.title + '> selected.')
+      }
     })
   }
 
   fetchCampaigns(): Observable<Campaign[]> {
     return this.http.get<Campaign[]>(backendUrl + "/campaigns/", {headers: headers});
+  }
+
+  insertCampaign(campaign: Campaign): Observable<Campaign> {
+    return this.http.post<Campaign>(backendUrl + "/campaigns/" , {headers: headers, data: campaign});
   }
 
   fetchScenarios(campaignId: number | null): Observable<Scenario[]> {

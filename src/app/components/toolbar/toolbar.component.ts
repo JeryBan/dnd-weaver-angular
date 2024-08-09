@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, Renderer2} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {CampaignService} from "../../shared/services/campaign.service";
 
@@ -13,6 +13,7 @@ import {CampaignService} from "../../shared/services/campaign.service";
 })
 export class ToolbarComponent {
   campaignService: CampaignService = inject(CampaignService);
+  renderer: Renderer2 = inject(Renderer2);
   isMuted = false;
 
   toggleMute() {
