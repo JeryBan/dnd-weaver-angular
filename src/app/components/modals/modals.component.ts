@@ -13,6 +13,7 @@ const apiUrl = environment.dnd5api;
 })
 export class ModalsComponent {
   @Input() modal: Modal | undefined;
+  storyMode: boolean = true;
 
   protected readonly apiUrl = apiUrl;
 }

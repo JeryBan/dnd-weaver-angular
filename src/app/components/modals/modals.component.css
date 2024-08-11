@@ -23,3 +23,28 @@ img {
   height: 98%;
   overflow-y: auto;
 }
+
+.new-scenario {
+  height: 30vh;
+}
+
+.back-fill {
+  padding: 3px;
+  border: 2px solid transparent;
+  border-image-source: url("/assets/backgrounds/parchment.jpg");
+  border-image-slice: 20 20 22 20 fill;
+  border-image-repeat: inherit;
+}
+
+input {
+  background-image: url("/assets/backgrounds/panel-bg-2.png");
+}
+
+input:focus {
+  outline: none;
+}
+
+.upload-map {
+  width: 80%;
+  height: 200px;
+}

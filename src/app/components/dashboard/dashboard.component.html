@@ -15,6 +15,14 @@
           ></app-modals>
         </div>
       </div>
+    } @else if (modal.type === 'createScenario') {
+      <div class="d-flex justify-content-center">
+        <div class="new-scenario-modal">
+          <app-modals
+            [modal]="modal"
+          ></app-modals>
+        </div>
+      </div>
     }
   </div>
 

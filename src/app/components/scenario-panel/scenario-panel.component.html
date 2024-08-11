@@ -5,12 +5,15 @@
       <div role="button" (click)="selectScenario(scenario)"><span>{{scenario.title}}</span></div>
       <div>
         @if (!scenario.combat_mode) {
-          <i class="fa-solid fa-scroll" role="button" (click)="showModal(scenario)"></i>
+          <i class="fa-solid fa-scroll" role="button" (click)="showScenarioModal(scenario)"></i>
         } @else {
-          <i class="fa-solid fa-skull-crossbones" role="button" (click)="showModal(scenario)"></i>
+          <i class="fa-solid fa-skull-crossbones" role="button" (click)="showScenarioModal(scenario)"></i>
         }
       </div>
     </div>
   }
+  <div class="d-flex justify-content-center w-100 text-white mt-4">
+    <i class="fa-solid fa-feather" role="button" (click)="showNewScenarioModal()"></i>
+  </div>
 </div>
 

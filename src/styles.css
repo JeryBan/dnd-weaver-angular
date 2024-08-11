@@ -1,19 +1,19 @@
 @font-face {
-  font-family: 'PlayfairDisplay';
-  src: url('assets/fonts/playfair-display/PlayfairDisplay-Regular.ttf') format('opentype');
+  font-family: 'LibreBodoni';
+  src: url('assets/fonts/Libre-Bodoni-master/LibreBodoni-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'PlayfairDisplay';
-  src: url('assets/fonts/playfair-display/PlayfairDisplay-Bold.ttf') format('opentype');
+  font-family: 'LibreBodoni';
+  src: url('assets/fonts/Libre-Bodoni-master/LibreBodoni-Bold.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
 }
 
 body {
-  font-family: 'PlayfairDisplay';
+  font-family: 'LibreBodoni';
   font-size: 1.4rem;
   font-weight: 600;
   color: antiquewhite;
