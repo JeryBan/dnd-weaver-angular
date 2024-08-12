@@ -8,6 +8,11 @@ export interface Monster {
   image: string | null
 }
 
+export interface MonsterSearch {
+  count: number,
+  results: Monster[]
+}
+
 /**
  * Monster info that comes from the dnd api.
  */

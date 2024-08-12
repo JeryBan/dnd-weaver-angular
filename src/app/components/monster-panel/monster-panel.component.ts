@@ -48,7 +48,7 @@ export class MonsterPanelComponent implements OnChanges{
 
     if (this.activeScenario?.monsters) {
       for (let monster of this.activeScenario.monsters) {
-        this.apiService.searchMonster(monster.index).subscribe({
+        this.apiService.getMonster(monster.index).subscribe({
           next: result => {
             this.monsterList.push(result);
           },

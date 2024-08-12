@@ -12,7 +12,7 @@
 import {inject, Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment.development";
 import {Observable} from "rxjs";
-import {MonsterInfo} from "../interfaces/monster";
+import {MonsterInfo, MonsterSearch} from "../interfaces/monster";
 import {HttpClient} from "@angular/common/http";
 import {Spell} from "../interfaces/spell";
 import {Feat} from "../interfaces/feat";
@@ -28,8 +28,12 @@ export class DndApiService {
 
   constructor() { }
 
-  searchMonster(index: string): Observable<MonsterInfo> {
+  getMonster(index: string): Observable<MonsterInfo> {
     return this.http.get<MonsterInfo>(apiUrl + "monsters/" + index, {headers: headers});
+  }
+
+  getAvailableMonsters(): Observable<MonsterSearch> {
+    return this.http.get<MonsterSearch>(apiUrl + "monsters/", {headers: headers});
   }
 
   searchSpell(index: string): Observable<Spell> {

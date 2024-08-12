@@ -12,6 +12,7 @@
 .scenario-content {
   width: 25vw;
   height: 60vh;
+  overflow-y: auto;
 }
 
 img {
@@ -24,20 +25,12 @@ img {
   overflow-y: auto;
 }
 
-.new-scenario {
-  height: 30vh;
-}
-
 .back-fill {
   padding: 3px;
   border: 2px solid transparent;
   border-image-source: url("/assets/backgrounds/parchment.jpg");
   border-image-slice: 20 20 22 20 fill;
   border-image-repeat: inherit;
-}
-
-input {
-  background-image: url("/assets/backgrounds/panel-bg-2.png");
 }
 
 input:focus {
