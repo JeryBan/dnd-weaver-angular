@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment.development";
 import {Scenario} from "../interfaces/scenario";
 
-const backendUrl = environment.backend;
+const backendUrl = environment.server;
 const headers = {Accept: 'application/json'};
 
 @Injectable({
