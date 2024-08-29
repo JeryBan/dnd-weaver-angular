@@ -2,10 +2,10 @@ import {effect, inject, Injectable, signal} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {User, UserLogin, UserRegister} from "../interfaces/user";
+import {User, UserLogin} from "../interfaces/user";
 
 const serverUrl = environment.server;
-// const headers = {Accept: 'application/json'};
+const headers = {accept: 'application/json'};
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +22,7 @@ export class LoginService {
     })
   }
 
-  createUser(body: UserRegister): Observable<User> {
-    return this.http.post<User>(`${serverUrl}user/`, body);
-  }
-
   loginUser(body: UserLogin): Observable<{token: string}> {
-    return this.http.post<{token: string}>(`${serverUrl}user/login/`, body);
+    return this.http.post<{token: string}>(`${serverUrl}user/login/`, body, {headers});
   }
 }
