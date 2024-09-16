@@ -23,6 +23,6 @@ export class LoginService {
   }
 
   loginUser(body: UserLogin): Observable<{token: string}> {
-    return this.http.post<{token: string}>(`${serverUrl}user/login/`, body, {headers});
+    return this.http.post<{token: string}>(`${serverUrl}/user/login/`, body, {headers});
   }
 }

@@ -5,8 +5,11 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment.development";
 import {Scenario} from "../interfaces/scenario";
 
-const backendUrl = environment.server;
-const headers = {Accept: 'application/json'};
+const serverUrl = environment.server;
+const headers = {
+  Accept: 'application/json',
+  Authorization: `Token ${localStorage.getItem('access_token')}`
+};
 
 @Injectable({
   providedIn: 'root'
@@ -28,14 +31,18 @@ export class CampaignService {
   }
 
   fetchCampaigns(): Observable<Campaign[]> {
-    return this.http.get<Campaign[]>(backendUrl + "/campaigns/", {headers: headers});
+    return this.http.get<Campaign[]>(serverUrl + "/campaigns/", {headers: headers});
   }
 
   insertCampaign(campaign: Campaign): Observable<Campaign> {
-    return this.http.post<Campaign>(backendUrl + "/campaigns/" , {headers: headers, data: campaign});
+    return this.http.post<Campaign>(serverUrl + "/campaign/" , campaign, {headers: headers});
+  }
+
+  deleteCampaign(id: number){
+    return this.http.delete<Campaign>(serverUrl + "/campaign/" + id, {headers: headers});
   }
 
   fetchScenarios(campaignId: number | null): Observable<Scenario[]> {
-    return this.http.get<Scenario[]>(backendUrl + `/${campaignId}` + '/scenarios', {headers: headers});
+    return this.http.get<Scenario[]>(serverUrl + `/${campaignId}` + '/scenarios', {headers: headers});
   }
 }

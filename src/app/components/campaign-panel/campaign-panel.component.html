@@ -11,7 +11,9 @@
       </div>
     } @else {
       <div role="button" class="campaign-card new-campaign">
-        <input type="text" placeholder="campaign title" (keyup.enter)="goToDashboard()">
+        <form [formGroup]="campaignForm">
+          <input formControlName="title" type="text" placeholder="campaign title" (keyup.enter)="createCampaign()">
+        </form>
       </div>
     }
   </div>
